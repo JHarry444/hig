@@ -4,6 +4,7 @@ import axios from 'axios';
 import { PATH } from './consts';
 
 class LoginForm extends Component {
+
   onClick = () => {
     axios.get(`${PATH}/user`).then(r => console.log(r)).catch(e => console.log(e));
   }
