@@ -15,16 +15,16 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${PATH}/login`, $("#loginForm").serialize())
-      .then(response => {console.log(response); this.setState({ authorised: response.status === 200 });})
-      .catch(error => this.setState({ error: `${error}` }));
+    axios.post(`${PATH}/login`, $("#loginForm").serialize(), { withCredentials: true })
+      .then(response => { console.log(response); this.setState({ authorised: response.status === 200 }); })
+      .catch(error => { console.log(error); this.setState({ error: `${error}` }); });
   }
   render() {
     if (this.state.authorised) {
       return <Redirect to="/" />;
     } else {
       return (
-        <LoginForm error={this.state.error} handleSubmit={this.handleSubmit}/>
+        <LoginForm error={this.state.error} handleSubmit={this.handleSubmit} />
       );
     }
   }
