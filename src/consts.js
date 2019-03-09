@@ -1,2 +1,1 @@
-export const PATH = "http://localhost:8080";
-// export const PATH = "";
+export const PATH = "35.230.144.30:8080";
