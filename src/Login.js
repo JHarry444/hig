@@ -15,7 +15,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${PATH}/login`, $("#loginForm").serialize(), { withCredentials: true })
+    axios.post(`${PATH}/login`, $("#loginForm").serialize(), {withCredentials: true, })
       .then(response => { console.log(response); this.setState({ authorised: response.status === 200 }); })
       .catch(error => { console.log(error); this.setState({ error: `${error}` }); });
   }
